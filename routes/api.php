@@ -21,8 +21,8 @@ Route::get('/comments', [HackerNewsController::class, 'listComments']);
 Route::get('/stories/{story_id}', [HackerNewsController::class, 'getStoryByStoryId']);
 Route::get('/authors/{author_name}', [HackerNewsController::class, 'getAuthorByName']);
 Route::get('/comments/{comment_id}', [HackerNewsController::class, 'getCommentByCommentId']);
-Route::get('/comments/author/{author}', [HackerNewsController::class, 'listAuthorComments']);
-Route::get('/stories/author/{author}', [HackerNewsController::class, 'listAuthorStories']);
+Route::get('/comments/authors/{author}', [HackerNewsController::class, 'listAuthorComments']);
+Route::get('/stories/authors/{author}', [HackerNewsController::class, 'listAuthorStories']);
 Route::get('/stories/{story_id}/comments', [HackerNewsController::class, 'listStoryComments']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

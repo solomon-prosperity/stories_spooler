@@ -22,7 +22,7 @@ class HackerNewsService
         $response = Http::get('https://hacker-news.firebaseio.com/v0/topstories.json');
         $stories = $response->json();
         // Limit the number of stories to 100
-        $stories = array_slice($stories, 0, 100);
+        $stories = array_slice($stories, 0, 20);
     
         foreach ($stories as $storyId) {
             // dispatch each story to a queue
