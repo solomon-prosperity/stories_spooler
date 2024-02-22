@@ -22,7 +22,7 @@ class HackerNewsService
         $response = Http::get('https://hacker-news.firebaseio.com/v0/topstories.json');
         $stories = $response->json();
         // Limit the number of stories to 100
-        $stories = array_slice($stories, 0, 1);
+        $stories = array_slice($stories, 0, 100);
     
         foreach ($stories as $storyId) {
             // dispatch each story to a queue
@@ -103,6 +103,7 @@ class HackerNewsService
                 // Store comment data in the database
                 Comment::updateOrCreate(['id' => $commentId], [
                     'story_id' => $commentData['parent'],
+                    'comment_id' => $commentData['id'],
                     'text' => $commentData['text'],
                     'author' => $authorId,
                 ]);
