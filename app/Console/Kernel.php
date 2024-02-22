@@ -17,7 +17,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $hackerNewsService = app(HackerNewsService::class);
-        $schedule->job(new SpoolStoriesJob($hackerNewsService))->everyMinute();
+        $schedule->job(new SpoolStoriesJob($hackerNewsService))->twiceDaily();
     }
 
     /**
